@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://isymbo.github.io</id>
+    <title>isymbo&apos;s blog</title>
+    <updated>2019-06-20T06:16:44.281Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://isymbo.github.io"/>
+    <link rel="self" href="https://isymbo.github.io/atom.xml"/>
+    <subtitle>On the road.</subtitle>
+    <logo>https://isymbo.github.io/images/avatar.png</logo>
+    <icon>https://isymbo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, isymbo&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[shadowsocks docker image]]></title>
+        <id>https://isymbo.github.io/post/shadowsocks-docker-image</id>
+        <link href="https://isymbo.github.io/post/shadowsocks-docker-image">
+        </link>
+        <updated>2019-06-20T01:57:12.000Z</updated>
+        <summary type="html"><![CDATA[<p>If you need an easy way to setup your own shadowsocks server to surf over the internet, here is the trick.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>If you need an easy way to setup your own shadowsocks server to surf over the internet, here is the trick.</p>
+<!-- more -->
+<p>Before you get started, you may need install your server with docker CE and docker-compose. Ubuntu Linux is recommended to use.</p>
+<p>For detailed installation instructions, please check</p>
+<ul>
+<li><a href="https://docs.docker.com/install/">docker CE installation</a></li>
+<li><a href="https://docs.docker.com/compose/install/">docker-compose installation</a></li>
+</ul>
+<p>Then you may use below docker-compose.yml to run the services.</p>
+<pre><code>shadowsocks:
+  restart: always
+  image: isymbo/shadowsocks
+  ports:
+    - &quot;8388:8388/tcp&quot;
+    - &quot;8388:8388/udp&quot;
+  environment:
+    - PASSWORD=password
+</code></pre>
+<p><strong>Note</strong> You may change the string password with your desired password string to use.</p>
+<p>The last step is that at the same directory of the docker-compose.yml file listed above, type</p>
+<pre><code>docker-compose up -d
+</code></pre>
+<p>You'll get your shadowsocks server running with the password you provide.</p>
+<p>For more information regarding the source code, please refer to <a href="https://github.com/isymbo/shadowsocks-python">github repository</a></p>
+]]></content>
+    </entry>
+</feed>
